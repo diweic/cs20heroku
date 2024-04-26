@@ -6,6 +6,7 @@ http.createServer(function (req, res) {
     var parsedUrl = url.parse(req.url, true);
     var path = parsedUrl.pathname;    
     res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write("current path is " + path);
     if (path === '/') {
         res.write(`
         <h1>Stock Ticker Form</h1>
