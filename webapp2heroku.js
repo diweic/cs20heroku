@@ -26,15 +26,15 @@ http.createServer(function (req, res) {
         `);
         res.end();
     } else if (path == '/process') {
+        var query = parsedUrl.query; 
         res.writeHead(200, {'Content-Type': 'text/html'});
         res.write("<h1>current path is " + path + "<h1>"); 
         res.write(`
             <h1>Form Data</h1>
-            <p>Input Type: ${query.inputType}</p>
-            <p>Input Value: ${query.inputValue}</p>
+            <p>Input Company Info Type: ${query.inputType}</p>
+            <p>Input Text Value: ${query.inputValue}</p>
         `);
         res.end();
-   
     } else {
         res.writeHead(404, {'Content-Type': 'text/html'});
         res.write('<h1>404 Not Found lmaoooo</h1>');
