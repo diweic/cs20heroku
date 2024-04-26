@@ -3,8 +3,6 @@ var port = process.env.PORT || 3000;
 console.log("This goes to the console window");
 http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write ("Success!  This app is deployed online");
-    res.write("<h2>Hello World</h2>");
     res.write(`
     <h1>Stock Ticker Form</h1>
     <form action="/process" method="get">
