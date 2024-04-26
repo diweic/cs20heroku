@@ -23,16 +23,14 @@ http.createServer(function (req, res) {
             <input type="submit" value="Submit">            
         </form>    
         `);
-        res.end();
-    }
-    else if (path === '/process') {
+    } else if (path === '/process') {
         res.write("current path is " + path);    
         processForm.handle(req, res, parsedUrl.query);
     } else {
         res.writeHead(404, {'Content-Type': 'text/html'});
         res.write('<h1>404 Not Found</h1>');
-        res.end();
     }
+    res.end();
 }).listen(port, () => {
     console.log("This goes to the console window");
 });
