@@ -1,10 +1,10 @@
 {
-  "name": "helloapp",
+  "name": "stocktickerapp",
   "version": "1.0.0",
   "description": "node app ",
   "main": "hello.js",
   "scripts": {
-  "start": "node hello.js"
+  "start": "node webapp2heroku.js"
 },
   "repository": {
   "type": "git",
