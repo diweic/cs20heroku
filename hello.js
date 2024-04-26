@@ -5,9 +5,9 @@ var port = process.env.PORT || 3000;
 http.createServer(function (req, res) {
     var parsedUrl = url.parse(req.url, true);
     var path = parsedUrl.pathname;    
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write("current path is " + path);
     if (path === '/') {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.write("current path is " + path);    
         res.write(`
         <h1>Stock Ticker Form</h1>
         <form action="/process" method="get">
@@ -26,11 +26,13 @@ http.createServer(function (req, res) {
         res.end();
     }
     else if (path === '/process') {
+        res.write("current path is " + path);    
         processForm.handle(req, res, parsedUrl.query);
     } else {
         res.writeHead(404, {'Content-Type': 'text/html'});
         res.write('<h1>404 Not Found</h1>');
         res.end();
     }
-}).listen(port);
-console.log("This goes to the console window");
+}).listen(port, () => {
+    console.log("This goes to the console window");
+});
