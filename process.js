@@ -5,6 +5,7 @@ function handle(req, res, query) {
         <p>Input Type: ${query.inputType}</p>
         <p>Input Value: ${query.inputValue}</p>
     `);
+    res.end();
 }
 
 module.exports = {
