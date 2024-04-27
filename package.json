@@ -2,7 +2,7 @@
   "name": "stocktickerapp",
   "version": "1.0.0",
   "description": "node app ",
-  "main": "hello.js",
+  "main": "webapp2heroku.js",
   "scripts": {
   "start": "node webapp2heroku.js"
 },
