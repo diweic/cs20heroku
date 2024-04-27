@@ -9,10 +9,9 @@ const collectionName = "PublicCompanies";
 http.createServer(function (req, res) {
     var parsedUrl = url.parse(req.url, true);
     var path = parsedUrl.pathname;    
-
+    // set up home page and get user input
     if (path == '/') {
         res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write("current path is " + path);    
         res.write(`
         <h1>Stock Ticker Form</h1>
         <form action="/process" method="get">
@@ -30,8 +29,8 @@ http.createServer(function (req, res) {
         `);
         res.end();
     } else if (path == '/process') {
+        // connect to mongodb and do a csearch based on user input
         res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write("<h1>current path is " + path + "<h1>"); 
         res.write("<h1> Search Result <h1>");
         var query = parsedUrl.query; 
         var temp = {};
@@ -49,6 +48,7 @@ http.createServer(function (req, res) {
                     client.close();
                 }
                 if (result.length > 0) {
+                    // print out all matching result
                     res.write("<ul>")
                     result.forEach(function(element) {
                         console.log(`Company name: ${element.company}, Ticker: ${element.ticker}, Share price: $${element.sharePrice}`);
@@ -56,6 +56,7 @@ http.createServer(function (req, res) {
                     });
                     res.write("</ul>")
                 } else {
+                    // no matching result
                     res.write("<p>No matching document lol</p>")
                 }
                 res.end();
