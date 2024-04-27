@@ -10,10 +10,13 @@
   "type": "git",
   "url": ""
 },
-  "author": "",
+  "author": "Diwei Chen",
   "license": "ISC",
   "bugs": {
   "url": ""
 },
-  "homepage": ""
+  "homepage": "",
+  "dependencies": {
+    "mongodb": "4.2.2"
+  }
 }
